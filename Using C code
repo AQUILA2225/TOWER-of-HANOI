@@ -1,0 +1,21 @@
+#include<stdio.h>
+void towerofhanoi(int n, char fromrod, char torod, char auxrod)
+{
+    if(n==1)
+    {
+        printf("Move the disc 1 from rod %c to rod %c\n", fromrod, torod);
+        return;
+    }
+    towerofhanoi(n-1,fromrod,auxrod,torod);
+    printf("move the disc %d from rod %c to rod %c\n",n,fromrod,torod);
+    towerofhanoi(n-1,auxrod, torod, fromrod);
+}
+int main()
+{
+    int n;
+    printf("Enter the number of discs:");
+    scanf("%d",&n);
+    printf("The sequence of moves involved in Tower of Hanoi are");
+    towerofhanoi(n,'A','C','B');
+    return 0;
+}
